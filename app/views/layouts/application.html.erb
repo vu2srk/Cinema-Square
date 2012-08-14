@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MovieApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+		<title>MovieApp</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "jquery-1.7.1.min" %>
+		<%= stylesheet_link_tag    "guiders" %>
+		<%= javascript_include_tag "jquery.wookmark" %>
+		<%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Chicle" %>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "guiders" %>
+		<%= csrf_meta_tags %>
 
-<%= yield %>
+		
+	</head>
+	<body>
 
-</body>
+		<div class="navbar">
+			<logo class="logo">
+				CinemaSquare
+			</logo>
+			<actions class="actions">
+				<a>My Movies</a>
+				<a>Wishlist</a>
+				<a>Discover</a>
+				<a>Logout</a>
+			</actions>
+		</div>
+
+		<%= yield %>
+
+	</body>
 </html>

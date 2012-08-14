@@ -1,0 +1,17 @@
+.name {
+  text-align:center;
+}
+
+.status {
+  padding:5px 30px;
+}
+
+.addMovies {
+  color: #27aae1;
+  cursor: pointer;
+  padding: 0px 5px;
+}
+
+.addMovies:hover {
+  background-color:transparent;
+}

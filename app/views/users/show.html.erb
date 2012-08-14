@@ -1,0 +1,153 @@
+  <%= stylesheet_link_tag "reset" %>
+  <%= stylesheet_link_tag "style" %>
+  <%= stylesheet_link_tag "user_page" %>
+  
+  <!--<link href='' rel='stylesheet' type='text/css'>-->
+
+<!--<p id="notice"><%= notice %></p>-->
+  <script>
+			$(document).ready(function() {
+				movieFind = '<div><input name="movieName" id="movieName" type="text"/></div><div id="movieFound"></div><a id="findMovieLink">Find Movie</a>'
+				$(".addMovies").click(function() {
+					guider = guiders.createGuider({
+						attachTo : ".addMovies",
+						buttons : [{
+							name : "Find"
+						}, {
+							name : "Close"
+						}],
+						description : "Type the name of the movie below and hit find" + movieFind,
+						id : "first",
+						next : "second",
+						position : 6,
+						title : "Add a movie to your collections"
+					});
+					
+					$("#findMovieLink").live("click", function(){
+						$.ajax({
+							url: "<%= users_findMovie_path %>",
+							data: "q="+$("#movieName").val(),
+							cache : false,
+							dataType: "json",
+							beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+						    success: function(response) {
+						    	$("#movieFound").html(response.replace(/~/g, "<br />"));
+						  	},
+						  	failure: function(){
+						  		alert("Failed!");
+						  	}
+						});
+						
+						/*$('#findMovieLink').ajaxComplete(function(e, xhr, settings) {
+						  $("#movieFound").innerHtml = xhr.responseText;
+						});*/
+					})
+					
+			    	guider.show();
+				});
+			});
+		</script>
+  <header>
+	<h1><%= @user.name + "'s Movies " %><a class="addMovies">+</a></h1>
+	<p class="status">Try not to bend the spoon, that's impossible, just realise the truth. There is no spoon. Then you'll see it's not the spoon that bends, it is only yourself</p>
+  </header>
+
+
+<!--<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>-->
+
+<div id="main" role="main">
+
+      <ul id="tiles">
+        <!-- These are our grid blocks -->
+	<li><%= image_tag("image_11.jpg", :alt => "rss feed", :width =>"200") %><p>1</p></li>
+	<li><%= image_tag("image_12.jpg", :alt => "rss feed", :width =>"200") %><p>2</p></li>
+	<li><%= image_tag("image_13.jpg", :alt => "rss feed", :width =>"200") %><p>3</p></li>
+	<li><%= image_tag("image_14.jpg", :alt => "rss feed", :width =>"200") %><p>4</p></li>
+	<li><%= image_tag("image_15.jpg", :alt => "rss feed", :width =>"200") %><p>5</p></li>
+	<li><%= image_tag("image_16.jpg", :alt => "rss feed", :width =>"200") %><p>6</p></li>
+	<li><%= image_tag("image_17.jpg", :alt => "rss feed", :width =>"200") %><p>7</p></li>
+	<li><%= image_tag("image_18.jpg", :alt => "rss feed", :width =>"200") %><p>8</p></li>
+	<li><%= image_tag("image_19.png", :alt => "rss feed", :width =>"200") %><p>9</p></li>
+	<li><%= image_tag("image_20.jpg", :alt => "rss feed", :width =>"200") %><p>10</p></li>
+	<li><%= image_tag("image_1.jpg", :alt => "rss feed", :width =>"200") %><p>1</p></li>
+	<li><%= image_tag("image_2.jpg", :alt => "rss feed", :width =>"200") %><p>2</p></li>
+	<li><%= image_tag("image_3.jpg", :alt => "rss feed", :width =>"200") %><p>3</p></li>
+	<li><%= image_tag("image_4.jpg", :alt => "rss feed", :width =>"200") %><p>4</p></li>
+	<li><%= image_tag("image_5.jpg", :alt => "rss feed", :width =>"200") %><p>5</p></li>
+	<li><%= image_tag("image_6.jpg", :alt => "rss feed", :width =>"200") %><p>6</p></li>
+	<li><%= image_tag("image_7.jpg", :alt => "rss feed", :width =>"200") %><p>7</p></li>
+	<li><%= image_tag("image_8.jpg", :alt => "rss feed", :width =>"200") %><p>8</p></li>
+	<li><%= image_tag("image_9.jpg", :alt => "rss feed", :width =>"200") %><p>9</p></li>
+	<li><%= image_tag("image_10.jpg", :alt => "rss feed", :width =>"200") %><p>10</p></li>
+        <!--<li><img src="images/image_1.jpg" width="200" height="283"><p>1</p></li>
+        <li><img src="images/image_2.jpg" width="200" height="300"><p>2</p></li>
+        <li><img src="images/image_3.jpg" width="200" height="252"><p>3</p></li>
+        <li><img src="images/image_4.jpg" width="200" height="158"><p>4</p></li>
+        <li><img src="images/image_5.jpg" width="200" height="300"><p>5</p></li>
+        <li><img src="images/image_6.jpg" width="200" height="297"><p>6</p></li>
+        <li><img src="images/image_7.jpg" width="200" height="200"><p>7</p></li>
+        <li><img src="images/image_8.jpg" width="200" height="200"><p>8</p></li>
+        <li><img src="images/image_9.jpg" width="200" height="398"><p>9</p></li>
+        <li><img src="images/image_10.jpg" width="200" height="267"><p>10</p></li>
+        <li><img src="images/image_1.jpg" width="200" height="283"><p>11</p></li>
+        <li><img src="images/image_2.jpg" width="200" height="300"><p>12</p></li>
+        <li><img src="images/image_3.jpg" width="200" height="252"><p>13</p></li>
+        <li><img src="images/image_4.jpg" width="200" height="158"><p>14</p></li>
+        <li><img src="images/image_5.jpg" width="200" height="300"><p>15</p></li>
+        <li><img src="images/image_6.jpg" width="200" height="297"><p>16</p></li>
+        <li><img src="images/image_7.jpg" width="200" height="200"><p>17</p></li>
+        <li><img src="images/image_8.jpg" width="200" height="200"><p>18</p></li>
+        <li><img src="images/image_9.jpg" width="200" height="398"><p>19</p></li>
+        <li><img src="images/image_10.jpg" width="200" height="267"><p>20</p></li>
+        <li><img src="images/image_1.jpg" width="200" height="283"><p>21</p></li>
+        <li><img src="images/image_2.jpg" width="200" height="300"><p>22</p></li>
+        <li><img src="images/image_3.jpg" width="200" height="252"><p>23</p></li>
+        <li><img src="images/image_4.jpg" width="200" height="158"><p>24</p></li>
+        <li><img src="images/image_5.jpg" width="200" height="300"><p>25</p></li>
+        <li><img src="images/image_6.jpg" width="200" height="297"><p>26</p></li>
+        <li><img src="images/image_7.jpg" width="200" height="200"><p>27</p></li>
+        <li><img src="images/image_8.jpg" width="200" height="200"><p>28</p></li>
+        <li><img src="images/image_9.jpg" width="200" height="398"><p>29</p></li>
+        <li><img src="images/image_10.jpg" width="200" height="267"><p>30</p></li>-->
+        <!-- End of grid blocks -->
+      </ul>
+
+    </div>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(new function() {
+      // Prepare layout options.
+      var options = {
+        autoResize: true, // This will auto-update the layout when the browser window is resized.
+        container: $('#main'), // Optional, used for some extra CSS styling
+        offset: 2, // Optional, the distance between grid items
+        itemWidth: 210 // Optional, the width of a grid item
+      };
+      
+      // Get a reference to your grid items.
+      var handler = $('#tiles li');
+      
+      // Call the layout function.
+      handler.wookmark(options);
+      
+      // Capture clicks on grid items.
+      handler.click(function(){
+        // Randomize the height of the clicked item.
+        var newHeight = $('img', this).height() + Math.round(Math.random()*300+30);
+        $(this).css('height', newHeight+'px');
+        
+        // Update the layout.
+        handler.wookmark();
+      });
+    });
+  </script>

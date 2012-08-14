@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <a href="<%= @movie.movie_url %>"><%= image_tag(@movie.pic_url, :alt => "rss feed", :width =>"200") %></a>
+</p>
+
+<p>
+  <b>Movie url:</b>
+  <%= @movie.movie_url %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @movie.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

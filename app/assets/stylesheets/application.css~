@@ -22,7 +22,7 @@
 	font-family: 'Chicle', cursive;
 	font-size: 40px;
 	font-weight: normal;
-	color: #27aae1;
+	color: gold;
 	padding: 0px 15px;
 }
 

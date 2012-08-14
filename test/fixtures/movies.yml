@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pic_url: MyString
+  movie_url: MyString
+  user_id: 1
+
+two:
+  pic_url: MyString
+  movie_url: MyString
+  user_id: 1

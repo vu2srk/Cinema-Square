@@ -1,4 +1,10 @@
 MovieApp::Application.routes.draw do
+  resources :movies
+  
+  match '/users/findMovie', :controller => 'users', :action => 'findMovie'
+
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
